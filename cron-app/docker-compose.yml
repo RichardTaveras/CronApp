@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  node:
+    build: ./node
+    depends_on:
+      - postgres
+    environment:
+      - NODE_ENV=production
+    links:
+      - postgres

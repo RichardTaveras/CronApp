@@ -1,0 +1,14 @@
+{
+    "name": "cron-app",
+    "version": "1.0.0",
+    "description": "Aplicación CRON para enviar correos cada 5 segundos si hay datos disponibles",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "nodemailer": "^6.9.1",
+      "pg": "^8.10.0"
+    }
+  }
+  
